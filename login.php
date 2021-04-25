@@ -16,7 +16,7 @@
             $sqli .= "AND ";
             $sqli .= "password=";
             $sqli .= "'". $password . "'";
-            //echo $sqli;
+
             $result = mysqli_query($db, $sqli);
             $user = mysqli_num_rows($result);
             $userArray = mysqli_fetch_assoc($result);
