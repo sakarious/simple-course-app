@@ -5,7 +5,7 @@
 
     if(isset($post['submit'])){
         if($post['email'] == '' || $post['password'] == ''){
-            echo "Please fill all fields";
+            echo '<div class="p-3 mb-2 bg-danger text-white">Please Fill all fields</div>';
         } else{
             $email = $post['email'];
             $password = md5($post['password']);
@@ -32,7 +32,7 @@
                 //redirect to dashboard
                 header("Location: " .ROOT_URL."dashboard.php");
             } else {
-                echo "Wrong Username or password";
+                echo '<div class="p-3 mb-2 bg-danger text-white">Wrong Username or Password</div>';
             }
 
         }

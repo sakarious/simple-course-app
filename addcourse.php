@@ -11,7 +11,7 @@
 
         if(isset($post['submit'])){
             if($post['name'] == ''){
-                echo "<h3>Course name is invalid</h3>";
+                echo '<div class="p-3 mb-2 bg-danger text-white">Course Name is Invalid</div>';
             } else {
                 $courseName = $post['name'];
                 $userId = $_SESSION['id'];
@@ -22,14 +22,14 @@
                 $sql .= "'" . $userId ."',";
                 $sql .= "'" . $courseName ."'";
                 $sql .= ")";
-                //echo $sql;
+
                 $result = mysqli_query($db, $sql);
                 
                 if($result){
                     $newId = mysqli_insert_id($db);
                     header("Location: ". ROOT_URL."viewcourse.php?id=" . $newId);
                 } else {
-                    echo "<h3>Something just happened right noww </h3>";
+                    echo '<div class="p-3 mb-2 bg-danger text-white">Something just happened Right Now</div>';
                 }
             }
            

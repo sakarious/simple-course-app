@@ -10,18 +10,18 @@
 
     if(isset($post['submit'])){
         if($post['currentpass'] == '' || $post['newpass'] == '' || $post['confirmpass'] == ''){
-            echo "<h3> Please fill all fields</h3>";
+            echo '<div class="p-3 mb-2 bg-danger text-white">Please Fill all fields</div>';
         }
 
         if($post['newpass'] != $post['confirmpass']){
-            echo "<h3>New Password not Match</h3>";
+            echo '<div class="p-3 mb-2 bg-danger text-white">New Password do not match</div>';
         }
 
         $correctCurrentPassword = $_SESSION['password'];
         $userCurrentPassword = md5($post['currentpass']);
 
         if($correctCurrentPassword != $userCurrentPassword){
-            echo "<h3>Current Password Wrong</h3>";
+            echo '<div class="p-3 mb-2 bg-danger text-white">Current Password is wrong</div>';
         } else{
             $newPassword = md5($post['confirmpass']);
             $userId = $_SESSION['id'];
@@ -32,7 +32,7 @@
             $sql .= "LIMIT 1";
             $result = mysqli_query($db, $sql);
             if($result){
-                echo "<h3>Password Reset Successful. Redirecting to Dashboard now.</h3>";
+                echo '<div class="p-3 mb-2 bg-success text-white">Password Reset Successful. Redirecting to Dashboard.</div>';
                 header('refresh: 5; url=dashboard.php'); // redirect the user after 5 seconds
              } else {
                  echo mysqli_error($db);

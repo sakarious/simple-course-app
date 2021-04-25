@@ -13,10 +13,6 @@
 
     <title><?php echo "Simple Course App - ".$pageTitle; ?></title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
-
-    <!-- Bootstrap core CSS -->
-    <!-- <link href="<?php // echo ROOT_URL; ?>assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="<?php echo ROOT_URL; ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -34,10 +30,6 @@
         }
       }
     </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-center text-white bg-dark">
     

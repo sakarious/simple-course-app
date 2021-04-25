@@ -7,7 +7,7 @@
 
         if (isset($post['submit'])){
             if($post['name'] == '' || $post['email'] == '' || $post['password'] == ''){
-                echo "<h3>All fields must be filled </h3>";
+                echo '<div class="p-3 mb-2 bg-danger text-white">Please Fill all fields</div>';
             }else {
                 $name = $post['name'];
                 $email = $post['email'];
@@ -20,9 +20,8 @@
                 $user = mysqli_fetch_assoc($result);
 
                 if($user){
-                    echo "Email exists. Login or try another email address";
+                    echo '<div class="p-3 mb-2 bg-danger text-white">Email exists. Please login or try another email address</div>';
                 } else {
-                    echo "Added to Database";
                     //Means email doesnt exits. Insert into db
                     $sqli = "INSERT INTO users ";
                     $sqli .= "(name, email, password) ";
@@ -31,7 +30,7 @@
                     $sqli .= "'" . $email . "',";
                     $sqli .= "'" . $password . "'";
                     $sqli .= ")";
-                    //echo($sqli);
+
                     $result = mysqli_query($db, $sqli);
 
                     if($result) {
@@ -46,7 +45,7 @@
                         //redirect to dashboard
                         header("Location: " .ROOT_URL."dashboard.php");
                    } else{
-                       echo('Query failed');
+                    echo '<div class="p-3 mb-2 bg-danger text-white">Query Failed.</div>';
                     }
                 }
             }

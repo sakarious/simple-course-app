@@ -28,7 +28,6 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($post['submit'])){
-            echo "<h3> Course Updated Successfully </h3> <br><br>";
             $newCourseName = $post['name'];
 
             //Update in Database
@@ -44,7 +43,7 @@
             if($result){
                 header("Location: ". ROOT_URL."viewcourse.php?id=" . $id);
             }else{
-                echo "<h3> Something Just Happened Right Now</h3>";
+                echo '<div class="p-3 mb-2 bg-danger text-white">Something Just Happened Right Now</div>';
             }
         }
     }

@@ -17,6 +17,7 @@
     $resultset = mysqli_query($db, $sqli);
     
     if(!$resultset){
+      echo '<div class="p-3 mb-2 bg-danger text-white">Something Just Happened Right Now</div>';
       exit('Database Query Failed');
     }
 
